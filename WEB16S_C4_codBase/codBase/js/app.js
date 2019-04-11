@@ -1,4 +1,6 @@
-
+var operacion1;
+var operacion2;
+var operacion;
 var calculadora={
     //declaracion de variables
  display: document.getElementById("display"),
@@ -21,71 +23,146 @@ var calculadora={
  punto : document.getElementById("punto"),
  igual : document.getElementById("igual"),
  mas : document.getElementById("mas"),
-     
- init:function(){    //con el metodo init le doy inicio a mis funciones 
-    this.uno.addEventListener('click',function(){    //eventos listener para mostrar mis numeros en pantalla 
-    display.textContent += "1";
-    
+
+
+ init:function(){    //con el metodo init le doy inicio a mis funciones
+
+    this.uno.addEventListener('click',function(){    //eventos listener para mostrar mis numeros en pantalla
+    numero(1);
+
     })
     this.dos.addEventListener('click',function(){
-    display.textContent += "2";
-        
+    numero(2);
+
+
     })
     this.tres.addEventListener('click',function(){
-    display.textContent += "3";
-            
+    numero(3);
+
+
     })
     this.cuatro.addEventListener('click',function(){
-    display.textContent += "4";
-                
+    numero(4);
+
     })
 
     this.cinco.addEventListener('click',function(){
-    display.textContent += "5";
-        
+    numero(5);
+
     })
     this.seis.addEventListener('click',function(){
-    display.textContent += "6";
-                    
+        numero(6);
+
     })
     this.siete.addEventListener('click',function(){
-    display.textContent += "7";
-                        
+        numero(7);
+
     })
-        
+
     this.ocho.addEventListener('click',function(){
-    display.textContent += "8";
-                
+        numero(8);
+
     })
 
     this.nueve.addEventListener('click',function(){
-    display.textContent += "9";
-                    
+        numero(9);
+
     })
     this.cero.addEventListener('click',function(){
             display.textContent += "0";
-                        
+
     })
     this.on.addEventListener('click',function(){
     display.textContent = "0";
-                                
-    })       
 
-    this.mas.addEventListener('click',function(){
-    display.textContent += "+";
-                    
     })
+
+    this.punto.addEventListener('click',function(){
+    display.textContent += ".";
+
+    })
+
+
+
+    this.mas.addEventListener('click', function(){
+         operacion1 =  display.textContent;
+         operacion = "+";
+        limpiar();
+
+
+    })
+
+    this.menos.addEventListener('click', function(){
+        operacion1 =  display.textContent;
+        operacion = "-";
+       limpiar();
+
+   })
+
+   this.por.addEventListener('click', function(){
+    operacion1 =  display.textContent;
+    operacion = "*";
+   limpiar();
+
+})
+this.dividido.addEventListener('click', function(){
+    operacion1 =  display.textContent;
+    operacion = "/";
+   limpiar();
+
+})
+this.igual.addEventListener('click', function (){
+    operacion2 = display.textContent;
+    resolver();
+})
+
+
+function numero(n){
+    if(display.innerHTML == 0){
+    display.textContent = n;
+    }
+    else {
+        display.textContent += n;
     }
 
-    
+}
+
+    function limpiar(){
+        display.textContent="";
+    }
+    function resetear(){
+        display.textContent ="";
+        operacion1 = "";
+        operacion2 ="";
+        operacion ="";
+    }
+        
+    function resolver(){
+        var res = 0;
+        switch(operacion){
+         case "+":
+             res = parseFloat(operacion1)+ parseFloat(operacion2);
+             break;
+         case "-":
+             res = parseFloat(operacion1) - parseFloat(operacion2);
+             break;
+         case "*":
+             res = parseFloat(operacion1) * parseFloat(operacion2);
+             break;
+         case "/":
+             res = parseFloat(operacion1) / parseFloat(operacion2);
+             break;
+         case "=":
+             res = parseFloat(operacion2) + parseFloat(operacion2);
+             break;
+        }
+        resetear();
+        display.textContent = res;
+    }
+
+    }
 
 
 }
 
 calculadora.init();
-
-
-
-
-
-
