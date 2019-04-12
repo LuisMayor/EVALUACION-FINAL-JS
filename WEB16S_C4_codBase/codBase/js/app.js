@@ -151,7 +151,7 @@ function numero(n) { //esta funcion la usamos para limitar el numero de campos, 
         operacion2 ="";
         operacion ="";
     }
-
+//funcion de prueba //
     function resolver(){ //aqui se ejecuta el calculo
         var res = 0;
         switch(operacion){
