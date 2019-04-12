@@ -30,7 +30,7 @@ var calculadora={
     this.uno.addEventListener('click',function(){    //eventos listener para mostrar mis numeros en pantalla
     numero(1);
     change(1)
-    
+
     })
     this.dos.addEventListener('click',function(){
     numero(2);
@@ -39,7 +39,7 @@ var calculadora={
     })
     this.tres.addEventListener('click',function(){
     numero(3);
-    change(3) 
+    change(3)
 
     })
     this.cuatro.addEventListener('click',function(){
@@ -87,7 +87,7 @@ var calculadora={
     this.punto.addEventListener('click',function(){
     display.textContent += ".";
     change('punto')
-    
+
     })
 
 
@@ -96,7 +96,7 @@ var calculadora={
     operacion = "+";
     limpiar();
     change('mas')
-        
+
     })
 
     this.menos.addEventListener('click', function(){
@@ -125,16 +125,15 @@ var calculadora={
     operacion2 = display.textContent;
     resolver();
     change('igual')
-        
-    })
 
-    function change(n) {
+    })
+    function change(n) { //esta funcion la usamos para cambiar el tamaño de las teclas al hacer click
     document.getElementById(n).style.transform="scale(0.9)";
 	setTimeout(function() {document.getElementById(n).style.transform="scale(1)";}, 200);
-   
+
 }
 
-function numero(n) {
+function numero(n) { //esta funcion la usamos para limitar el numero de campos, el numero de ceros
     if (display.textContent.length <= 7) {
         if (display.innerHTML == 0) {
             display.textContent = n;
@@ -143,7 +142,6 @@ function numero(n) {
         }
     }
 }
-
     function limpiar(){
         display.textContent="";
     }
@@ -153,8 +151,8 @@ function numero(n) {
         operacion2 ="";
         operacion ="";
     }
-        
-    function resolver(){
+
+    function resolver(){ //aqui se ejecuta el calculo
         var res = 0;
         switch(operacion){
          case "+":
@@ -180,4 +178,4 @@ function numero(n) {
     }
 }
 
-calculadora.init();
+calculadora.init();//se usa para ejecutar
