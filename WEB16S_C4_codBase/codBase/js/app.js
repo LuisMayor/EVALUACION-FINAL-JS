@@ -29,6 +29,7 @@ var calculadora={
 
     this.uno.addEventListener('click',function(){    //eventos listener para mostrar mis numeros en pantalla
     numero(1);
+    maxdisplay();
 
     })
     this.dos.addEventListener('click',function(){
@@ -69,7 +70,7 @@ var calculadora={
 
     })
     this.cero.addEventListener('click',function(){
-            display.textContent += "0";
+           numero(0);
 
     })
     this.on.addEventListener('click',function(){
@@ -114,7 +115,17 @@ this.dividido.addEventListener('click', function(){
 this.igual.addEventListener('click', function (){
     operacion2 = display.textContent;
     resolver();
+    
 })
+
+/*function maxdisplay(){
+    if(display.textContent.length<=8){
+        display.textContent = display.textContent;
+    }else{
+        display.textContent = display.textContent.;
+    }
+  }
+
 
 
 function numero(n){
@@ -125,6 +136,17 @@ function numero(n){
         display.textContent += n;
     }
 
+}  */
+
+
+function numero(n) {
+    if (display.textContent.length <= 7) {
+        if (display.innerHTML == 0) {
+            display.textContent = n;
+        } else {
+            display.textContent += n;
+        }
+    }
 }
 
     function limpiar(){
@@ -159,6 +181,9 @@ function numero(n){
         resetear();
         display.textContent = res;
     }
+
+
+    
 
     }
 
