@@ -25,7 +25,8 @@ var calculadora={
  mas : document.getElementById("mas"),
 
 
- init:function(){    //con el metodo init le doy inicio a mis funciones
+ init:function(){    //con el metodo init le doy inicio a mis funciones.
+
 
     this.uno.addEventListener('click',function(){    //eventos listener para mostrar mis numeros en pantalla
     numero(1);
